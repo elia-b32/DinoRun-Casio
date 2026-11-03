@@ -22,7 +22,7 @@ jobs:
             -v "$GITHUB_WORKSPACE:/casio/DinoRun" \
             -w /casio/DinoRun \
             manawyrm/fxsdk:latest \
-            sh -lc 'fxsdk build-fx && find . -name "*.g1a" -print'
+            sh -c 'fxsdk build-fx && find . -name "*.g1a" -print'
 
       - name: Prepara il file scaricabile
         uses: actions/upload-artifact@v4
