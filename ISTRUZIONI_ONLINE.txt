@@ -1,0 +1,24 @@
+DINO RUN - COMPILAZIONE ONLINE (GitHub Actions)
+
+La compilazione viene eseguita sui server GitHub, senza WSL/Ubuntu sul tuo PC.
+ATTENZIONE: progetto sperimentale, non ancora compilato e verificato su Casio fisica.
+Se compare un errore su GitHub, invia il log a ChatGPT per correggere i sorgenti.
+
+1. Crea un account su https://github.com/ se non ce l'hai.
+2. Apri https://github.com/new e crea un repository PUBBLICO, nome "DinoRun-Casio".
+   Per semplicità spunta "Add a README file", poi "Create repository".
+3. Estrai questo ZIP nel tuo computer.
+4. Sul repository, clicca Add file -> Upload files, trascina il CONTENUTO della
+   cartella estratta, conservando la struttura delle sottocartelle (anche .github).
+   Controlla che .github/workflows/build.yml sia presente online.
+5. Conferma con "Commit changes".
+6. Apri la scheda Actions. Cerca "Compila Dino Run Casio" e usa "Run workflow".
+   Se non è visibile, controlla in Settings -> Actions che i workflow siano abilitati.
+7. Una volta che la compilazione è verde, apri l'esecuzione e scarica l'artifact
+   chiamato DINORUN_Casio_fx9860GIII (uno ZIP che contiene il .g1a).
+8. Estrai DINORUN.g1a; collega la Casio via USB (USB Flash), copia .g1a nella
+   cartella principale della calcolatrice ed espelli in sicurezza.
+
+NOTA: l'immagine Docker usata e' manawyrm/fxsdk:latest (terza parte).
+La compilazione puo' fallire per incompatibilita' delle versioni degli strumenti
+oppure per errori nel codice non ancora collaudato.

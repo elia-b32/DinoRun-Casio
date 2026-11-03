@@ -1,0 +1,32 @@
+name: Compila Dino Run Casio
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Scarica i file del progetto
+        uses: actions/checkout@v4
+
+      - name: Compila su GitHub (nessun software sul tuo PC)
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/casio/DinoRun" \
+            -w /casio/DinoRun \
+            manawyrm/fxsdk:latest \
+            sh -lc 'fxsdk build-fx && find . -name "*.g1a" -print'
+
+      - name: Prepara il file scaricabile
+        uses: actions/upload-artifact@v4
+        with:
+          name: DINORUN_Casio_fx9860GIII
+          path: '**/*.g1a'
+          if-no-files-found: error
